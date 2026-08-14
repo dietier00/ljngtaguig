@@ -1,4 +1,7 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@plugin 'lightswind/plugin';
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
@@ -12,15 +15,43 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+html {
+  min-height: 100%;
 }
 
 body {
+  min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+  font-family: 'astra';
+  src: url("/public/fonts/ASTRA.woff2") format("woff2")
+}
+@font-face {
+  font-family: 'epic';
+  src: url("/public/fonts/GCEPICPRODemo-ExtraBold.woff2") format("woff2")
+}
+@font-face {
+  font-family: 'opti';
+  src: url("/public/fonts/OPTIUniversSixtySeven.woff2") format("woff2")
+}
+
+.progress{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #007acc;
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 9500;
 }
