@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ProgressBar from "@/components/layout/ProgressBar";
+import Preloader from "@/components/animations/Preloader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -81,11 +82,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <link rel="stylesheet" href="/fonts/stylesheet.css" />
       </head>
-      <body className="flex min-h-full flex-col">
-        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
-        <ProgressBar />
-        {children}
-      </body>
+      <body className="min-h-screen bg-zinc-50 dark:bg-black">
+        <Preloader />
+  <script
+    dangerouslySetInnerHTML={{
+      __html: THEME_INIT_SCRIPT,
+    }}
+  />
+
+  <ProgressBar />
+
+  {children}
+</body>
     </html>
   );
 }

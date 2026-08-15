@@ -16,8 +16,8 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-zinc-50/80 backdrop-blur dark:bg-black/80">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
-        <Link href="/" className="shrink-0">
+      <nav className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
+        <Link href="/" className="shrink-0 relative z-10">
           <h1 className="text-xl font-bold" style={{ fontFamily: "astra" }}>
             D
             <TextType 
@@ -30,7 +30,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center space-x-6 md:flex">
+        <div className="absolute left-1/2 hidden -translate-x-1/2 space-x-6 items-center md:flex">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.label}

@@ -1,19 +1,51 @@
 import React from "react";
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+
 import Hero from "@/components/sections/Hero";
-import CustomCursor from "@/components/ui/CustomCursor";
+import AboutPrev from "@/components/sections/AboutPrev";
+import Projects from "@/components/sections/Projects";
+import Experience from "@/components/sections/Experience";
+import Skills from "@/components/sections/Skills";
 
 export default function Home() {
-  const containerRef = React.createRef<HTMLDivElement>();
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 dark:bg-black">
+    <div
+      className="relative min-h-screen bg-zinc-50 text-zinc-950 dark:bg-black dark:text-white"
+    >
+
       <Navbar />
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 dark:bg-black sm:items-start">
-        <CustomCursor containerRef={containerRef} />
-        <Hero />
+
+      <main className="relative">
+        {/* Hero */}
+        <section id="home">
+          <Hero />
+        </section>
+
+        {/* About */}
+        <section id="about">
+          <AboutPrev />
+        </section>
+
+        {/* Projects */}
+        <section id="projects">
+          <Projects />
+        </section>
+
+        {/* Experience */}
+        <section id="experience">
+          <Experience />
+        </section>
+
+        {/* Skills */}
+        <section id="skills">
+          <Skills />
+        </section>
 
       </main>
+
+      <Footer />
     </div>
   );
 }

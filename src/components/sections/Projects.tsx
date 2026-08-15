@@ -1,102 +1,89 @@
-"use client";
+import SectionHeading from "../ui/SectionHeading";
 
-import { useRef } from "react";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import Container from "@/components/ui/Container";
-import SectionHeading from "@/components/sections/SectionHeading";
-import Reveal from "@/components/animations/Reveal";
-import Badge from "@/components/ui/Badge";
-import { projects } from "@/app/data/project";
+const projects = [
+  {
+    number: "01",
+    title: "Skye Blinds",
+    category: "Web Application",
+    description:
+      "An e-commerce and ordering management system with analytics and AI-assisted functionality.",
+    technologies: ["Laravel", "React", "MySQL"],
+  },
+
+  {
+    number: "02",
+    title: "Motor Pool Management",
+    category: "Enterprise Application",
+    description:
+      "A vehicle information and maintenance management system with QR-based vehicle access.",
+    technologies: ["Laravel", "React", "MySQL"],
+  },
+
+  {
+    number: "03",
+    title: "Portfolio",
+    category: "Web Design",
+    description:
+      "A personal portfolio focused on interaction, motion, typography, and modern web design.",
+    technologies: ["Next.js", "TypeScript", "GSAP"],
+  },
+];
 
 export default function Projects() {
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  // Cursor-following spotlight per card via CSS custom properties
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    card.style.setProperty("--mx", `${e.clientX - rect.left}px`);
-    card.style.setProperty("--my", `${e.clientY - rect.top}px`);
-  };
-
   return (
-    <section id="projects" className="relative py-28 sm:py-36">
-      <Container>
+    <section className="border-t border-zinc-200 dark:border-zinc-800">
+      <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
+
         <SectionHeading
-          eyebrow="Selected Work"
-          title="Projects with a point of view."
-          description="A selection of work where engineering and design meet — each one solving a real problem with a considered approach."
+          eyebrow="02 — Projects"
+          title="Things I've built."
+          description="Selected projects showcasing my experience in development, design, and system building."
         />
 
-        <div
-          ref={gridRef}
-          className="grid gap-6 md:grid-cols-2"
-        >
-          {projects.map((project, i) => (
-            <Reveal
-              key={project.title}
-              delay={(i % 2) * 0.1}
-              className={project.featured ? "md:col-span-2" : ""}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+          {projects.map((project) => (
+            <article
+              key={project.number}
+              className="group flex min-h-90 flex-col justify-between rounded-2xl border border-zinc-200 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-zinc-400 dark:border-zinc-800 dark:hover:border-zinc-600"
             >
-              <Link
-                href={project.href}
-                onMouseMove={handleMouseMove}
-                className="group relative block overflow-hidden rounded-3xl border border-zinc-200 bg-white/60 p-8 transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-900/40 dark:hover:border-zinc-700 sm:p-10"
-              >
-                {/* Cursor spotlight */}
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                  style={{
-                    background: `radial-gradient(500px circle at var(--mx, 50%) var(--my, 50%), ${project.accent}14, transparent 60%)`,
-                  }}
-                />
+              <div>
+                <span className="text-sm text-zinc-500">
+                  {project.number}
+                </span>
 
-                {/* Decorative gradient blob */}
-                <div
-                  aria-hidden
-                  className={`pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gradient-to-br ${project.gradient} blur-2xl transition-transform duration-700 group-hover:scale-110`}
-                />
+                <p className="mt-8 text-xs uppercase tracking-widest text-zinc-500">
+                  {project.category}
+                </p>
 
-                <div className="relative flex flex-col gap-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex flex-col gap-2">
-                      <span className="font-mono text-xs text-muted-foreground">
-                        {project.year} · {project.role}
-                      </span>
-                      <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm font-medium text-cyan-500 dark:text-cyan-400">
-                        {project.tagline}
-                      </p>
-                    </div>
-                    <span
-                      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-zinc-200 text-foreground transition-all duration-300 group-hover:rotate-45 group-hover:border-cyan-400/50 group-hover:text-cyan-400 dark:border-zinc-700"
-                      aria-hidden
-                    >
-                      <ArrowUpRight size={18} />
-                    </span>
-                  </div>
+                <h3
+                  className="mt-2 text-3xl font-bold"
+                  style={{ fontFamily: "astra" }}
+                >
+                  {project.title}
+                </h3>
 
-                  <p className="max-w-2xl text-base leading-7 text-muted-foreground">
-                    {project.description}
-                  </p>
+                <p className="mt-4 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                  {project.description}
+                </p>
+              </div>
 
-                  <div className="flex flex-wrap gap-2">
-                    {project.stack.map((tech) => (
-                      <Badge key={tech} tone="muted">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-            </Reveal>
+              <div className="mt-8 flex flex-wrap gap-2">
+                {project.technologies.map((technology) => (
+                  <span
+                    key={technology}
+                    className="rounded-full border border-zinc-200 px-3 py-1 text-xs dark:border-zinc-700"
+                  >
+                    {technology}
+                  </span>
+                ))}
+              </div>
+            </article>
           ))}
+
         </div>
-      </Container>
+
+      </div>
     </section>
   );
 }
