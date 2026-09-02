@@ -18,14 +18,14 @@ export default function Hero() {
             className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400"
             style={{ fontFamily: "opti" }}
           >
-            Developer · Designer · Problem Solver
+            Web Developer | UIUX Designer | Data Analytics | SQL
           </p>
 
           <h1
             className="max-w-3xl text-5xl font-bold leading-[0.9] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
             style={{ fontFamily: "epic" }}
           >
-            Hell, World!
+            Hello, World!
           </h1>
 
           <p

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ProgressBar from "@/components/layout/ProgressBar";
 import Preloader from "@/components/animations/Preloader";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
     "My personal portfolio website showcases my skills, projects, and experiences in web development and design.",
   keywords: [
     "LJ ng Taguig",
+    "Dyter LJ Federiz",
     "portfolio",
     "web development",
     "web design",
@@ -30,12 +32,15 @@ export const metadata: Metadata = {
     "skills",
     "experiences",
   ],
-  authors: [{ name: "LJ ng Taguig", url: "https://ljngtaguig.com" }],
-  creator: "LJ ng Taguig",
+  authors: [{ name: "Dyter LJ Federiz", url: "https://ljngtaguig-xi.vercel.app/" }],
+  creator: "Dyter LJ Federiz",
+  verification: {
+    google: "dCvJGHn0bZM7enxFcHuXi82DlyelxmUJDwkjSj5hin0",
+  },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://ljngtaguig.com",
+    locale: "en_PH",
+    url: "https://ljngtaguig-xi.vercel.app/",
     title: "LJ ng Taguig",
     description:
       "My personal portfolio website showcases my skills, projects, and experiences in web development and design.",
@@ -55,6 +60,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
@@ -82,7 +91,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <head>
         <link rel="stylesheet" href="/fonts/stylesheet.css" />
       </head>
-      <body className="min-h-screen bg-zinc-50 dark:bg-black">
+      <body className="min-h-screen bg-zinc-50">
         <Preloader />
   <script
     dangerouslySetInnerHTML={{
@@ -91,6 +100,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   />
 
   <ProgressBar />
+  <Analytics />
 
   {children}
 </body>

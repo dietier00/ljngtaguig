@@ -10,9 +10,16 @@ const NAV_ITEMS = [
     { label: "Projects", href: "/project" },
   { label: "About", href: "/about" },
 ];
+const email = "fdljalmeron@gmail.com";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-zinc-50/80 backdrop-blur dark:bg-black/80">
@@ -42,7 +49,20 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-
+<div className="absolute overflow-hidden inset-0 z-o">
+<div className="relative">
+            <button
+              onClick={handleCopyEmail}
+              className="text-sm transition-colors hover:text-cyan-500 dark:text-white dark:hover:text-cyan-400"
+              style={{fontFamily: 'epic'}}
+            >
+              {email}
+            </button>
+            <span className={'absolute left-1/2 -translate-x-1/2 -translate-y-full text-xs text-cyan-500 transition-opacity duration-300 ' + (copied ? 'opacity-100' : 'opacity-0')}>
+              Copied!
+            </span>
+          </div>
+    </div>
         <div className="flex items-center space-x-4">
           <ToggleTheme />
 

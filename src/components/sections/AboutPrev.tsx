@@ -5,11 +5,11 @@ export default function About() {
     <section className="border-t border-zinc-200 dark:border-zinc-800">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
 
-        <SectionHeading
-          eyebrow="01 — About"
-          title="A little about me."
-          description="A quick overview of who I am, what I do, and the kind of problems I enjoy solving."
-        />
+          <SectionHeading
+                  eyebrow="01 — About"
+                  title="A little about me."
+                  description="A quick overview of who I am, what I do, and the kind of problems I enjoy solving."
+                />       
 
         <div className="grid gap-12 md:grid-cols-2">
 
