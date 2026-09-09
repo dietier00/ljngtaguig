@@ -31,7 +31,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="border-t border-zinc-200 dark:border-zinc-800">
+    <section className="border-t border-zinc-200 dark:border-zinc-800" id="projects">
       <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
 
         <SectionHeading

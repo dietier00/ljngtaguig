@@ -18,7 +18,7 @@ export default function Hero() {
             className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500 dark:text-zinc-400"
             style={{ fontFamily: "opti" }}
           >
-            Web Developer | UIUX Designer | Data Analytics | SQL
+            Web Developer | UI/UX Designer | Data Analytics | SQL
           </p>
 
           <h1

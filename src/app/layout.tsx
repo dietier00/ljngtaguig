@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     "My personal portfolio website showcases my skills, projects, and experiences in web development and design.",
   keywords: [
     "LJ ng Taguig",
+    "Dyter LJ",
     "Dyter LJ Federiz",
     "portfolio",
     "web development",
@@ -45,6 +46,10 @@ export const metadata: Metadata = {
     description:
       "My personal portfolio website showcases my skills, projects, and experiences in web development and design.",
     siteName: "LJ ng Taguig",
+  },
+  robots: {
+    index: process.env.NODE_ENV === "production",
+    follow: process.env.NODE_ENV === "production",
   },
   icons: {
     icon: [
