@@ -21,19 +21,20 @@ export const metadata: Metadata = {
     template: "%s | LJ ng Taguig",
   },
   description:
-    "My personal portfolio website showcases my skills, projects, and experiences in web development and design.",
+    "My personal portfolio website showcases my skills, projects, and experiences in web development and data science.",
   keywords: [
     "LJ ng Taguig",
     "Dyter LJ",
     "Dyter LJ Federiz",
     "portfolio",
     "web development",
-    "web design",
+    "data analysis",
+    "data science",
     "projects",
     "skills",
     "experiences",
   ],
-  authors: [{ name: "Dyter LJ Federiz", url: "https://ljngtaguig-xi.vercel.app/" }],
+  authors: [{ name: "Dyter LJ Federiz", url: "https://ljngtaguig.vercel.app/" }],
   creator: "Dyter LJ Federiz",
   verification: {
     google: "dCvJGHn0bZM7enxFcHuXi82DlyelxmUJDwkjSj5hin0",
@@ -41,10 +42,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_PH",
-    url: "https://ljngtaguig-xi.vercel.app/",
+    url: "https://ljngtaguig.vercel.app/",
     title: "LJ ng Taguig",
     description:
-      "My personal portfolio website showcases my skills, projects, and experiences in web development and design.",
+      "My personal portfolio website showcases my skills, projects, and experiences in web development and data science.",
     siteName: "LJ ng Taguig",
   },
   robots: {
